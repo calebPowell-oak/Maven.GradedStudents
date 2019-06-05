@@ -58,4 +58,36 @@ public class ClassroomTest {
         // Assert
         Assert.assertFalse(successful);
     }
+
+    @Test
+    public void removeStudentTest(){
+        // Given
+        String firstName = "Caleb", lastName = "Powell";
+        Classroom cr = new Classroom(4);
+        cr.addStudent(new Student());
+        cr.addStudent(new Student(firstName, lastName, new Double[0]));
+        cr.addStudent(new Student());
+
+        // When
+        Boolean successful = cr.removeStudent(firstName, lastName);
+
+        // Assert
+        Assert.assertTrue(successful);
+    }
+
+    @Test
+    public void removeStudentTestNone(){
+        // Given
+        String firstName = "Caleb", lastName = "Powell";
+        Classroom cr = new Classroom(4);
+        cr.addStudent(new Student());
+        cr.addStudent(new Student());
+        cr.addStudent(new Student());
+
+        // When
+        Boolean successful = cr.removeStudent(firstName, lastName);
+
+        // Assert
+        Assert.assertFalse(successful);
+    }
 }

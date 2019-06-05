@@ -86,4 +86,17 @@ public class Student {
         }
         return output;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (other == null || getClass() != other.getClass()) {
+            return false;
+        }
+        Student oStud = (Student)other;
+        return firstName.equals(oStud.getFirstName()) &&
+                lastName.equals(oStud.getLastName());
+    }
 }

@@ -41,4 +41,18 @@ public class Classroom {
         }
         return false;
     }
+
+    public Boolean removeStudent(String first, String last){
+        Student rm = new Student(first, last, new Double[0]);
+        for(int i = 0; i < students.length; i++){
+            if(students[i] != null && students[i].equals(rm)){
+                for(int j = i; j < students.length - 1; j++){
+                    students[j] = students[j + 1];
+                }
+                if(students[students.length -1] != null) students[students.length - 1] = null;
+                return true;
+            }
+        }
+        return false;
+    }
 }
