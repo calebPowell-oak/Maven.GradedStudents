@@ -59,8 +59,7 @@ public class Classroom {
         return false;
     }
 
-    public Student[] orderStudents(Student[] unOrdered){
-        Arrays.sort(unOrdered);
-        return unOrdered;
+    public void orderStudents(){
+        Arrays.sort(students);
     }
 }

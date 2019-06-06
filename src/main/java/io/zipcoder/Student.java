@@ -104,9 +104,8 @@ public class Student implements Comparable<Student>{
     public int compareTo(Student o) {
         if(this.getAverageExamScore() > o.getAverageExamScore()) return 1;
         if(this.getAverageExamScore() < o.getAverageExamScore()) return -1;
-        if(this.getAverageExamScore() == this.getAverageExamScore()){
-            return this.getFirstName().compareTo(o.getFirstName());
+        else {
+            return firstName.compareTo(o.getFirstName());
         }
-        return 0;
     }
 }

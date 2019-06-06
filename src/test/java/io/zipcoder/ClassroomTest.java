@@ -90,4 +90,38 @@ public class ClassroomTest {
         // Assert
         Assert.assertFalse(successful);
     }
+
+    @Test public void orderStudentTest(){
+        // Given
+        Student s1 = new Student("a", "b", new Double[] {100d, 100d, 100d});
+        Student s2 = new Student("b", "c", new Double[] {200d, 120d, 120d});
+        Student s3 = new Student("d", "e", new Double[] {100d, 10d, 10d});
+        Classroom cr = new Classroom(new Student[] {s1, s2, s3});
+
+        // When
+        cr.orderStudents();
+
+        // Assert
+        Assert.assertTrue(cr.getStudents()[0] == s3);
+        Assert.assertTrue(cr.getStudents()[1] == s1);
+        Assert.assertTrue(cr.getStudents()[2] == s2);
+    }
+
+    @Test public void orderStudentTestSameScore(){
+        // Given
+        Student s1 = new Student("z", "x", new Double[] {100d, 100d, 100d});
+        Student s2 = new Student("b", "c", new Double[] {100d, 100d, 100d});
+        Student s3 = new Student("d", "e", new Double[] {100d, 100d, 100d});
+        Classroom cr = new Classroom(new Student[] {s1, s2, s3});
+
+        // When
+        cr.orderStudents();
+
+        // Assert
+        Assert.assertTrue(cr.getStudents()[0] == s2);
+        Assert.assertTrue(cr.getStudents()[1] == s3);
+        Assert.assertTrue(cr.getStudents()[2] == s1);
+    }
+
+
 }
