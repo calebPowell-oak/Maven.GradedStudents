@@ -1,9 +1,12 @@
 package io.zipcoder;
 
+import com.sun.jmx.snmp.agent.SnmpUserDataFactory;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
+import java.lang.invoke.SwitchPoint;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Classroom {
@@ -64,7 +67,28 @@ public class Classroom {
         Arrays.sort(students);
     }
 
-    public String getGradebook(Student[] pups){
-        return null; //todo
+    public HashMap<Student, String> getGradebook(){
+        Arrays.sort(students);
+        Double highestScore = students[0].getAnExamScore(0);
+        Double lowestScore = students[0].getAnExamScore(0);
+        for(Student x : students){
+            if(x.getAnExamScore(0) > highestScore) highestScore = x.getAnExamScore(0);
+            else if(x.getAnExamScore(0) < lowestScore) lowestScore = x.getAnExamScore(0);
+        }
+
+        HashMap<Student, String> gb = new HashMap<>(students.length);
+        Integer count = 1;
+        for(Student x : students){
+            gb.put(x, getLetterGrade(new Double(count++)/students.length));
+        }
+        return gb;
+    }
+
+    public String getLetterGrade(Double percentile){
+        if(percentile >= .90) return "A";
+        else if (percentile >= .71) return "B";
+        else if (percentile >= .50) return "C";
+        else if (percentile >= .11) return "D";
+        else return "F";
     }
 }

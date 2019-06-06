@@ -3,6 +3,8 @@ package io.zipcoder;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 public class ClassroomTest {
 
     @Test
@@ -123,5 +125,23 @@ public class ClassroomTest {
         Assert.assertTrue(cr.getStudents()[2] == s1);
     }
 
+    @Test
+    public void getGradebookTest(){
+        // Given
+        Student s1 = new Student("z", "x", new Double[] {90d, 100d, 100d});
+        Student s2 = new Student("b", "c", new Double[] {80d, 100d, 100d});
+        Student s3 = new Student("d", "e", new Double[] {50d, 100d, 100d});
+        Student s4 = new Student("t", "e", new Double[] {10d, 100d, 100d});
+        Student s5 = new Student("u", "e", new Double[] {88d, 100d, 100d});
+        Student s6 = new Student("m", "e", new Double[] {100d, 100d, 100d});
+        Classroom cr = new Classroom(new Student[] {s1, s2, s3, s4, s5, s6});
+
+        // When
+        HashMap<Student, String> grades = cr.getGradebook();
+
+        // Assert
+        Assert.assertEquals("D", grades.get(s4));
+        Assert.assertEquals("A", grades.get(s6));
+    }
 
 }
