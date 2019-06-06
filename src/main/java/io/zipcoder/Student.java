@@ -5,7 +5,7 @@ import org.omg.CORBA.DoubleHolder;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Student {
+public class Student implements Comparable<Student>{
 
     private String firstName;
     private String lastName;
@@ -98,5 +98,15 @@ public class Student {
         Student oStud = (Student)other;
         return firstName.equals(oStud.getFirstName()) &&
                 lastName.equals(oStud.getLastName());
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        if(this.getAverageExamScore() > o.getAverageExamScore()) return 1;
+        if(this.getAverageExamScore() < o.getAverageExamScore()) return -1;
+        if(this.getAverageExamScore() == this.getAverageExamScore()){
+            return this.getFirstName().compareTo(o.getFirstName());
+        }
+        return 0;
     }
 }

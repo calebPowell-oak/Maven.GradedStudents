@@ -2,6 +2,9 @@ package io.zipcoder;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Classroom {
 
     private Student[] students;
@@ -54,5 +57,10 @@ public class Classroom {
             }
         }
         return false;
+    }
+
+    public Student[] orderStudents(Student[] unOrdered){
+        Arrays.sort(unOrdered);
+        return unOrdered;
     }
 }

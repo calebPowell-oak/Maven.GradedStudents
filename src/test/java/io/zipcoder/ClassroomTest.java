@@ -76,7 +76,7 @@ public class ClassroomTest {
     }
 
     @Test
-    public void removeStudentTestNone(){
+    public void removeStudentTestNone() {
         // Given
         String firstName = "Caleb", lastName = "Powell";
         Classroom cr = new Classroom(4);
