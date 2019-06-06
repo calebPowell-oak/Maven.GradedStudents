@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 public class Classroom {
 
@@ -61,5 +62,9 @@ public class Classroom {
 
     public void orderStudents(){
         Arrays.sort(students);
+    }
+
+    public String getGradebook(Student[] pups){
+        return null; //todo
     }
 }
